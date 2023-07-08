@@ -135,6 +135,21 @@ closeBtn.addEventListener("click", () => {
         origin: "left"
     })
 
+    sr.reveal(".hosgeldiniz-mesaj",{
+        delay:500,
+        opacity:0,
+        distance: "15px",
+        origin: "top"
+    })
+    sr.reveal(".hosgeldiniz-mouse",{
+        delay: 300,
+        opacity: 0,
+        distance: "10px",
+        origin: "top"
+    })
+
+
+
 
 
     // Saat detayı
