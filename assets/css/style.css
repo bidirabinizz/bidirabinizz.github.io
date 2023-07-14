@@ -178,6 +178,11 @@ header .btn{
     font-weight: bold;
     color: white;  
 }
+.software-comment .card-deck .card p{
+  color: black;
+  font-weight: bold;
+}
+
 .ekibimiz-header{
   font-size: 30px;
   font-weight: bold;
