@@ -1,5 +1,6 @@
 body{
     max-width: 100%;
+    width: 100%;
 }
 
 .progressyazifont{
@@ -164,7 +165,8 @@ display: inline;
     transform: translate(-50%, -50%);
 
 }
-.sosyal-medyaHesaplari{
+/*Kart düzenlemesi ürünler güncellemesi*/
+.card{
     text-align: center;
 }
  @import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
