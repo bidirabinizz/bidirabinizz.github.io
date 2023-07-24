@@ -150,7 +150,7 @@ header .btn{
   }
 }
 
-@media (max-width: 630px){
+@media (max-width: 1060px){
   .section-main h1{
     font-size: 50px;
     line-height: 60px;
