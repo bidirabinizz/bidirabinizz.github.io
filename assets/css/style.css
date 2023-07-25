@@ -155,13 +155,18 @@ header .btn{
     font-size: 50px;
     line-height: 60px;
   }
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap');
   header .brand{
     color: #fff;
     font-size: 25px;
-    font-weight: 700;
+    margin: -0.8em;
+    margin-left: 2px;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 2px;
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-bottom: 10px;
+    padding-right: 10px;
   }
   header .menu{
     position: fixed;
@@ -189,7 +194,7 @@ header .btn{
   header .menu a{
     display: block;
     font-size: 1.06em;
-    margin: 20px;
+    margin: 10px;
     padding: 0 15px;
   }
 }
