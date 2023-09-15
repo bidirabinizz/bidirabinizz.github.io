@@ -234,6 +234,9 @@ guncelSaat();
 
 
 //Konum api
+let cityBilgileri = document.getElementById('countrySehir');
+let ulkeBilgileri = document.getElementById('countryUlke');
+
         fetch('http://ip-api.com/json/')
   .then(response => response.json())
   .then(data => {
@@ -243,9 +246,12 @@ guncelSaat();
     const latitude = data.lat;
     const longitude = data.lon;
 
-    console.log('Şehir:', city);
+    cityBilgileri.innerHTML = 'Şehir: ' + city;
+    ulkeBilgileri.innerHTML = 'Ülke: ' + country;
+
+
     console.log('Bölge:', region);
-    console.log('Ülke:', country);
+    console.log("Ülke: ",country)
     console.log('Enlem:', latitude);
     console.log('Boylam:', longitude);
   })
@@ -303,4 +309,13 @@ window.addEventListener('load', function() {
   
   // Sayfa içeriğini gösterin
   document.querySelector('.content').style.display = 'block';
+});
+
+
+var guncellemeTarihi = "15.09.2023";
+
+// HTML içindeki "guncellemeTarihi" elementlerine tarih bilgisini ekleyin
+var elements = document.querySelectorAll("#guncellemeTarihi");
+elements.forEach(function(element) {
+  element.textContent += guncellemeTarihi;
 });
