@@ -94,12 +94,12 @@
       
 
       <!--Ürünler-->
- <section name="software" id="software" style="height: 100vh; color: #000; background-color: #00ffff;">
+ <section name="software" id="software" style="height: 100vh; color: #000; background-color: black;">
         <div class="d-flex justify-content-center software-header">Burası Yapım Aşamasındadır</div>
     
 
 
-      <div class="swiper mySwiper">
+      <div class="swiper mySwiper swiperExchange">
         <div class="swiper-wrapper">
           <div class="swiper-slide"> 
             <div class="card">
@@ -109,7 +109,7 @@
               <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted sosyal-medyaHesaplari">Güncellenme tarihi : 24.07.2023</small>
+              <small class="text-muted sosyal-medyaHesaplari">Güncellenme tarihi : </small>
             </div>
           </div>  
         </div>
@@ -121,7 +121,7 @@
                 <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
               </div> 
               <div class="card-footer">
-                <small class="text-muted sosyal-medyaHesaplari">Güncellenme tarihi : 24.07.2023</small>
+                <small class="text-muted sosyal-medyaHesaplari">Güncellenme tarihi : </small>
               </div>
             </div>
           </div>
@@ -213,6 +213,53 @@
         <div class="swiper-pagination"></div>
       </div>
 
+      <div id="LocalSaat"> Yerel saat = 
+      <div id="localHours"></div>
+      </div>
+
+      
+
+<div style="display: flex; justify-content:space-between;">
+      <!--Ülke Bilgileri-->
+      <div name="UlkeBilgileri" class="ulkeBilgileri" style="width: 33%;">  
+   <div id="countrySelectYerlestirme"> 
+     <select id="country-select" style="display: block;">
+        <!-- Ülkelerin adları burada listelenecek -->
+    </select>
+  </div> 
+    <div id="country-info">
+        <!-- Seçilen ülkenin bilgileri burada görüntülenecek -->
+    </div>
+  </div>
+  <div style="width: 25%;" >
+    <div class="ortalamaUlkeBilgileri">
+      Ülke Saatleri
+      <br>
+    s
+      
+    </div>
+    <span style="color: white;">
+      Istanbul : 
+    <div id="istanbulSaat"></div>
+  </span>
+  <br>
+  <span style="color: white;">
+    New York : 
+  <div id="newyorkSaat"></div>
+</span>
+
+  </div>
+  <div style="width: 25%; margin-right: 20px;">
+  <div class="ortalamaUlkeBilgileri">
+    deneme
+  </div>
+</div>
+        <!--Ülke Class-->
+  
+</div>
+
+
+<!--Form bitiş-->
 </div> 
  
 
@@ -438,9 +485,11 @@
     spaceBetween: 30,
     pagination: {
       el: ".swiper-pagination",
-      clickable: true,
+      clickable: false,
     },
   });
+
+
 </script>
 </body>
 </html>

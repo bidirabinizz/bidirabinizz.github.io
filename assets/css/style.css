@@ -155,6 +155,7 @@ header .btn{
     font-size: 50px;
     line-height: 60px;
   }
+
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap');
   header .brand{
     color: #fff;
@@ -199,7 +200,20 @@ header .btn{
   }
 }
 
+@media (min-width: 1000px){
+  .swiper-pagination{
+    height: 10px;
+}
 
+.card{
+  max-width: 500px;
+  height: 300px;
+  margin-left: 40px;
+}
+
+/*Min-width 1000px finally*/
+
+}
 
 
 .bizkimiz-header{

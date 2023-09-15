@@ -162,3 +162,135 @@ function updateClock() {
   setTimeout(updateClock, 1000);
 }
 updateClock();
+
+let tarih = document.getElementById('localHours');
+
+function guncelSaat(){
+  let date = new Date();
+  let saat = date.getHours();
+  let dakika = date.getMinutes();
+  let saniye = date.getSeconds();
+
+
+  let saatDetay = saat + ' ' + dakika + ' ' + saniye;  
+
+  tarih.innerHTML = saatDetay;
+
+} 
+guncelSaat();
+  setInterval(guncelSaat, 1000);
+
+  const countrySelect = document.getElementById('country-select');
+        const countryInfo = document.getElementById('country-info');
+
+        // REST Countries API'sinin endpoint'i
+        const apiUrl = 'https://restcountries.com/v3.1/name/';
+
+        // Ülkeleri almak için API isteği gönderin
+        fetch('https://restcountries.com/v3.1/all')
+            .then(response => response.json())
+            .then(countries => {
+                // Ülkelerin adlarını seçenekler olarak ekleyin
+                countries.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.name.common;
+                    option.textContent = country.name.common;
+                    countrySelect.appendChild(option);
+                });
+
+                // İlk ülkeyi otomatik olarak seçili hale getirin
+                displayCountryInfo(countries[0].name.common);
+            })
+            .catch(error => {
+                console.error('API isteği başarısız oldu: ', error);
+            });
+
+        // Ülke seçimi değiştiğinde çağrılan işlev
+        countrySelect.addEventListener('change', function() {
+            const selectedCountry = this.value;
+            displayCountryInfo(selectedCountry);
+        });
+
+        // Seçilen ülkenin bilgilerini görüntüleyen işlev
+        function displayCountryInfo(countryName) {
+            fetch(apiUrl + countryName)
+                .then(response => response.json())
+                .then(countryData => {
+                    // Ülke bilgilerini HTML olarak görüntüle
+                    const { name, capital, population, area, flags} = countryData[0];
+                    countryInfo.innerHTML = `
+                        <h2>${name.common}</h2>
+                        <p>Başkent: ${capital}</p>
+                        <p>Nüfus: ${population}</p>
+                        <p>Yüzölçümü: ${area} km²</p>
+                        <img src=${flags.png}>
+                    `;
+                })
+                .catch(error => {
+                    console.error('API isteği başarısız oldu: ', error);
+                });
+        }
+  
+
+
+//Konum api
+        fetch('http://ip-api.com/json/')
+  .then(response => response.json())
+  .then(data => {
+    const city = data.city;
+    const region = data.regionName;
+    const country = data.country;
+    const latitude = data.lat;
+    const longitude = data.lon;
+
+    console.log('Şehir:', city);
+    console.log('Bölge:', region);
+    console.log('Ülke:', country);
+    console.log('Enlem:', latitude);
+    console.log('Boylam:', longitude);
+  })
+  .catch(error => {
+    console.error('API isteği başarısız oldu: ', error);
+  });
+  let istanbulSaat = document.getElementById('istanbulSaat');
+  let newyorkSaat = document.getElementById('newyorkSaat');
+
+  fetch('http://worldtimeapi.org/api/timezone/Europe/Istanbul')
+      .then(response => response.json())
+      .then(istanbulData => {
+          const istanbulDatetime = new Date(istanbulData.utc_datetime);
+          const istanbulHours = istanbulDatetime.getHours();
+          const istanbulMinutes = istanbulDatetime.getMinutes();
+          const istanbulSeconds = istanbulDatetime.getSeconds();
+
+          const formattedIstanbulTime = `${istanbulHours}:${istanbulMinutes}:${istanbulSeconds}`;
+
+          istanbulSaat.textContent = formattedIstanbulTime;
+
+          fetch('http://worldtimeapi.org/api/timezone/America/New_York')
+              .then(response => response.json())
+              .then(newyorkData => {
+                  const newyorkDatetime = new Date(newyorkData.utc_datetime);
+                  const newyorkHours = newyorkDatetime.getHours();
+                  const newyorkMinutes = newyorkDatetime.getMinutes();
+                  const newyorkSeconds = newyorkDatetime.getSeconds();
+
+                  const formattedNewYorkTime = `${newyorkHours}:${newyorkMinutes}:${newyorkSeconds}`;
+
+                  newyorkSaat.textContent = formattedNewYorkTime;
+
+                  // Saat farkını hesapla
+                  const saatFarki = newyorkDatetime - istanbulDatetime;
+                  const saatFarkiSaat = Math.floor(saatFarki / 3600000); // Milisaniyeden saate çevirme
+
+                  console.log('İstanbul Saati:', formattedIstanbulTime);
+                  console.log('New York Saati:', formattedNewYorkTime);
+                  console.log('Saat Farkı:', saatFarkiSaat, 'saat');
+              })
+              .catch(error => {
+                  console.error('New York API isteği başarısız oldu: ', error);
+              });
+      })
+      .catch(error => {
+          console.error('İstanbul API isteği başarısız oldu: ', error);
+      });
