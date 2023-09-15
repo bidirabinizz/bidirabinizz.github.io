@@ -282,7 +282,7 @@ guncelSaat();
                   // Saat farkını hesapla
                   const saatFarki = newyorkDatetime - istanbulDatetime;
                   const saatFarkiSaat = Math.floor(saatFarki / 3600000); // Milisaniyeden saate çevirme
-
+                
                   console.log('İstanbul Saati:', formattedIstanbulTime);
                   console.log('New York Saati:', formattedNewYorkTime);
                   console.log('Saat Farkı:', saatFarkiSaat, 'saat');
@@ -294,3 +294,13 @@ guncelSaat();
       .catch(error => {
           console.error('İstanbul API isteği başarısız oldu: ', error);
       });
+
+      // Sayfa yüklenme esnasındaki efekt
+      
+window.addEventListener('load', function() {
+  // Yükleniyor simgesini gizleyin
+  document.querySelector('.loader-wrapper').style.display = 'none';
+  
+  // Sayfa içeriğini gösterin
+  document.querySelector('.content').style.display = 'block';
+});
