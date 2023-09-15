@@ -282,7 +282,7 @@ header .btn{
   width: 30%;
   border-radius: 50px;
 }
-.card-body{
+.rotating-border {
   width: 100px;
   height: 100px;
   border: 8px solid transparent;
